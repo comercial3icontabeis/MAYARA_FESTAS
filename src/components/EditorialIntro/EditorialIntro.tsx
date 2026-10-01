@@ -31,12 +31,9 @@ export function EditorialIntro() {
           /* o arco: a foto nasce dentro de um painel em arco e se abre até ocupar a moldura */
           .fromTo(q(`.${styles.frame}`), { clipPath: ARCH_FROM }, { clipPath: ARCH_TO, duration: 0.55 }, 0.25)
           .fromTo(q(`.${styles.frameInner}`), { scale: 1.45 }, { scale: 1, duration: 0.65 }, 0.25)
-          .to(q(`.${styles.titleLine}:nth-child(1)`), { xPercent: -3, duration: 0.6 }, 0.35)
-          .to(q(`.${styles.titleLine}:nth-child(2)`), { xPercent: 8, duration: 0.6 }, 0.35)
           .from(q(`.${styles.lead}`), { y: 40, opacity: 0, duration: 0.18 }, 0.5)
           .from(q(`.${styles.phrase}`), { y: 30, opacity: 0, stagger: 0.08, duration: 0.14 }, 0.62)
-          .from(q(`.${styles.closing}`), { y: 30, opacity: 0, duration: 0.14 }, 0.88)
-          .from(q(`.${styles.detail}`), { yPercent: 40, opacity: 0, duration: 0.3 }, 0.7);
+          .from(q(`.${styles.closing}`), { y: 30, opacity: 0, duration: 0.14 }, 0.88);
       });
 
       /* Mobile: animações de entrada independentes, sem fixação */
@@ -87,10 +84,6 @@ export function EditorialIntro() {
               ))}
               <span className={styles.closing}>Cada escolha participa da história do evento.</span>
             </p>
-          </div>
-
-          <div className={styles.detail} aria-hidden="true">
-            <Photo media={media.manifestoDetalhe} sizes="(min-width: 900px) 16vw, 40vw" compact />
           </div>
         </div>
       </div>

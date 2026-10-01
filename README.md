@@ -43,7 +43,7 @@ o espaço mostra o nome esperado e a proporção recomendada.
 |---|---|---|
 | `galeria/*.jpg` (qualquer nome; use 01-, 02-… para ordenar) | Portfólio + painéis em arco do hero (3 primeiras) | 3:4 |
 | `hero.jpg` | Hero em tela cheia (substitui os painéis) — só com foto em alta | 16:9 |
-| `manifesto.jpg`, `manifesto-detalhe.jpg` | "Não é sobre alugar objetos" | 4:5 · 3:4 |
+| `manifesto.jpg` | "Não é sobre alugar objetos" | 4:5 |
 | `imagine.jpg` | "Agora imagine tudo isso junto" (ajuste as etiquetas em `imagineHotspots`) | 3:4 |
 | `acervo-<categoria>.jpg` | Rolagem horizontal do acervo e páginas /acervo | 4:3 |
 | `evento-<tipo>.jpg` | Tipos de evento e páginas /eventos | 4:5 |
