@@ -44,7 +44,7 @@
   transition: color 0.4s var(--ease), padding 0.5s var(--ease);
 }
 .indexLink .num {
-  font-size: 0.68rem;
+  font-size: 0.85rem;
   color: var(--text-faint);
 }
 .indexLink:hover {

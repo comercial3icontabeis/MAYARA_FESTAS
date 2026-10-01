@@ -59,14 +59,14 @@
   gap: clamp(18px, 2.2vw, 36px);
 }
 .links a {
-  font-size: 0.95rem;
+  font-size: 1.0625rem;
   font-weight: 500;
 }
 
 .cta {
   min-height: 40px;
   padding: 0 18px;
-  font-size: 0.95rem;
+  font-size: 1.0625rem;
   font-weight: 500;
   border: 1px solid currentColor;
   transition: background 0.5s var(--ease), color 0.5s var(--ease), border-color 0.5s var(--ease);
@@ -182,7 +182,7 @@
 }
 .menuIdx {
   font-family: var(--font-ui);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text-dim);
 }
 .menuFoot {
@@ -196,6 +196,6 @@
 .menuMeta {
   display: flex;
   gap: 24px;
-  font-size: 0.95rem;
+  font-size: 1.0625rem;
   color: var(--text-dim);
 }

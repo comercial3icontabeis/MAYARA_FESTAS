@@ -49,7 +49,7 @@
   margin-top: clamp(56px, 10vh, 112px);
   padding-block: 24px;
   border-top: 1px solid var(--line-night);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--on-night-dim);
 }
 

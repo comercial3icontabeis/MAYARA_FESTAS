@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer/Footer";
 import { QuoteProvider } from "@/components/QuoteForm/QuoteProvider";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat/WhatsAppFloat";
 import { MotionProvider } from "@/motion/MotionProvider";
+import { SoftReveal } from "@/motion/SoftReveal";
 import "./globals.css";
 
 const serif = Bodoni_Moda({
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <WhatsAppFloat />
         </QuoteProvider>
         <MotionProvider />
+        <SoftReveal />
       </body>
     </html>
   );

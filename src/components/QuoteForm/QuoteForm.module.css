@@ -33,7 +33,7 @@
   min-width: 0;
   min-height: 48px;
   padding: 10px 0;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   background: transparent;
   border: 0;
   border-bottom: 1px solid var(--line);
@@ -70,7 +70,7 @@
   border-bottom-color: var(--accent);
 }
 .error {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--accent);
 }
 
@@ -102,7 +102,7 @@
   max-height: 34vh;
   overflow: auto;
   font-family: var(--font-ui);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.6;
   white-space: pre-wrap;
   word-break: break-word;
