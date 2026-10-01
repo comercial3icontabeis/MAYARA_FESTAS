@@ -1,0 +1,11 @@
+.wrap {
+  max-width: 920px;
+  margin-inline: 0;
+  padding-bottom: clamp(96px, 16vh, 180px);
+}
+@media (min-width: 1680px) {
+  .wrap {
+    margin-inline: auto;
+    max-width: var(--max);
+  }
+}

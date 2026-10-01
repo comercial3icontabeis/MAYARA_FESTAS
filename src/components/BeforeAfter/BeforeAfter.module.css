@@ -1,0 +1,128 @@
+.section {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  padding-bottom: clamp(96px, 16vh, 200px);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  align-items: end;
+  gap: 24px 48px;
+  margin-bottom: clamp(32px, 6vh, 64px);
+}
+.head > :first-child,
+.head h2 {
+  grid-column: 1;
+}
+.head em {
+  color: var(--accent);
+}
+.intro {
+  grid-column: 2;
+  grid-row: 2;
+  color: var(--text-dim);
+  font-size: var(--fs-small);
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 86vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--surface);
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.frame:not([data-dragging]) .layer {
+  transition: clip-path 0.5s var(--ease);
+}
+
+.tag {
+  position: absolute;
+  top: 20px;
+  z-index: 2;
+  padding: 8px 12px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none;
+}
+.tagBefore {
+  left: 20px;
+}
+.tagAfter {
+  right: 20px;
+}
+
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 44px;
+  margin-left: -22px;
+  display: grid;
+  place-items: center;
+  outline: none;
+}
+.frame:not([data-dragging]) .handle {
+  transition: left 0.5s var(--ease);
+}
+.handle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--bg);
+}
+.knob {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  transition: transform 0.6s var(--ease);
+}
+.knob svg {
+  width: 28px;
+}
+.handle:focus-visible .knob {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 4px;
+}
+.frame[data-dragging] .knob {
+  transform: scale(0.86);
+}
+
+@media (max-width: 899px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .intro {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .reveal {
+    margin-inline: calc(var(--gutter) * -1);
+  }
+  .frame {
+    aspect-ratio: 4 / 5;
+  }
+  .knob {
+    width: 52px;
+    height: 52px;
+  }
+}

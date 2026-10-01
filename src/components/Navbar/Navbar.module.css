@@ -1,0 +1,208 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  color: var(--text);
+  transition: color 0.6s var(--ease);
+}
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+.nav[data-scrolled]::before {
+  opacity: 1;
+}
+.nav[data-open]::before {
+  opacity: 0;
+}
+.nav[data-light] {
+  color: var(--on-night);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: var(--nav-h);
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  transition: height 0.6s var(--ease);
+}
+.nav[data-scrolled] .inner {
+  height: var(--nav-h-compact);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  margin-right: auto;
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.links ul {
+  display: flex;
+  gap: clamp(18px, 2.2vw, 36px);
+}
+.links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.cta {
+  min-height: 40px;
+  padding: 0 18px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  transition: background 0.5s var(--ease), color 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.cta:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.nav[data-light] .cta:hover {
+  background: var(--on-night);
+  color: var(--night);
+  border-color: var(--on-night);
+}
+
+.burger {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+}
+.burger span {
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.7s var(--ease), top 0.7s var(--ease);
+}
+.burger span:first-child {
+  top: 18px;
+}
+.burger span:last-child {
+  top: 26px;
+}
+.nav[data-open] .burger span:first-child {
+  top: 22px;
+  transform: rotate(45deg);
+}
+.nav[data-open] .burger span:last-child {
+  top: 22px;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 1080px) {
+  .links {
+    display: none;
+  }
+}
+@media (max-width: 899px) {
+  .cta {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+}
+
+/* -------- Mobile fullscreen menu -------- */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--nav-h) + 4vh) var(--gutter) max(28px, env(safe-area-inset-bottom));
+  background: var(--bg);
+  clip-path: circle(0% at calc(100% - var(--gutter) - 12px) 42px);
+  visibility: hidden;
+  transition: clip-path 0.9s var(--ease-in-out), visibility 0s linear 0.9s;
+  overflow-y: auto;
+}
+.menu[data-open] {
+  clip-path: circle(150% at calc(100% - var(--gutter) - 12px) 42px);
+  visibility: visible;
+  transition: clip-path 1s var(--ease-in-out), visibility 0s;
+}
+@media (min-width: 900px) {
+  .menu {
+    display: none;
+  }
+}
+
+.menuNav ol {
+  display: grid;
+  gap: 4px;
+}
+.menuNav li,
+.menuFoot {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.menu[data-open] .menuNav li,
+.menu[data-open] .menuFoot {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.9s var(--ease), transform 1.1s var(--ease);
+  transition-delay: calc(0.25s + var(--i) * 0.07s);
+}
+.menuNav a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 6px 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 11vw, 4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.menuIdx {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+}
+.menuFoot {
+  display: grid;
+  gap: 22px;
+  padding-top: 32px;
+}
+.menuFoot .btn {
+  justify-content: center;
+}
+.menuMeta {
+  display: flex;
+  gap: 24px;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}

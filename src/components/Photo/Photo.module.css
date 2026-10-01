@@ -1,0 +1,112 @@
+.photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.img {
+  object-fit: cover;
+}
+
+/* -------- Placeholder tonal --------
+   Simula luz fotográfica suave para que o layout possa ser avaliado
+   antes das fotos reais. Sempre identificado com a pauta da foto. */
+.placeholder {
+  --a: #d9cdbd;
+  --b: #b9a690;
+  --c: #8d7865;
+  --glow: rgba(255, 240, 220, 0.55);
+  --ink: rgba(25, 23, 20, 0.55);
+  background:
+    radial-gradient(120% 90% at 78% 18%, var(--glow), transparent 55%),
+    radial-gradient(90% 70% at 12% 92%, color-mix(in srgb, var(--c) 70%, transparent), transparent 60%),
+    linear-gradient(160deg, var(--a) 0%, var(--b) 55%, var(--c) 100%);
+}
+.placeholder[data-tone="night"] {
+  --a: #3a3029;
+  --b: #221c17;
+  --c: #120f0d;
+  --glow: rgba(232, 168, 108, 0.42);
+  --ink: rgba(241, 235, 226, 0.6);
+}
+.placeholder[data-tone="ember"] {
+  --a: #6b4a37;
+  --b: #4a3125;
+  --c: #261914;
+  --glow: rgba(240, 180, 120, 0.45);
+  --ink: rgba(241, 235, 226, 0.62);
+}
+.placeholder[data-tone="sand"] {
+  --a: #e3d6c3;
+  --b: #c9b49a;
+  --c: #9b8469;
+}
+.placeholder[data-tone="stone"] {
+  --a: #cfcac2;
+  --b: #a9a299;
+  --c: #77706a;
+  --glow: rgba(255, 252, 245, 0.5);
+}
+.placeholder[data-tone="blush"] {
+  --a: #ead6cc;
+  --b: #d1b0a2;
+  --c: #a77f71;
+  --glow: rgba(255, 238, 228, 0.6);
+}
+.placeholder[data-tone="sage"] {
+  --a: #d6d7c8;
+  --b: #adb09b;
+  --c: #7c8170;
+  --glow: rgba(250, 248, 235, 0.5);
+}
+.placeholder[data-tone="linen"] {
+  --a: #efe8dd;
+  --b: #d8cbb8;
+  --c: #ae9c86;
+  --glow: rgba(255, 252, 244, 0.7);
+}
+
+/* grão fotográfico */
+.placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.light {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(40% 30% at 62% 38%, var(--glow), transparent 70%);
+  filter: blur(20px);
+  opacity: 0.7;
+}
+
+.caption {
+  position: absolute;
+  left: clamp(12px, 2vw, 24px);
+  bottom: clamp(12px, 2vw, 22px);
+  right: clamp(12px, 2vw, 24px);
+  z-index: 1;
+  max-width: 34ch;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.tag {
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.captionTop {
+  top: calc(var(--nav-h) + 12px);
+  bottom: auto;
+  left: auto;
+  text-align: right;
+}

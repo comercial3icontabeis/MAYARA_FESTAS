@@ -1,0 +1,222 @@
+/* Layout base (mobile e movimento reduzido): lista corrida com fotos inline */
+.section {
+  position: relative;
+  z-index: 1;
+  background: var(--night);
+  color: var(--on-night);
+  padding-block: clamp(96px, 14vh, 160px);
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.left {
+  display: grid;
+  gap: 24px;
+  align-content: start;
+}
+.left :global(.dim) {
+  color: var(--on-night-dim);
+}
+.headline em {
+  color: var(--accent-soft);
+}
+
+.timeline {
+  position: relative;
+  margin-top: 24px;
+  padding-left: 28px;
+}
+.track {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--line-night);
+}
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-soft);
+  transform-origin: top;
+}
+
+.steps {
+  display: grid;
+  gap: 48px;
+}
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  gap: 12px;
+  transition: opacity 0.6s var(--ease);
+}
+.step::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--night);
+  border: 1px solid var(--line-night);
+  transition: background 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.step[data-active]::before,
+.step[data-done]::before {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+}
+.stepNum {
+  font-size: 0.72rem;
+  padding-top: 4px;
+  color: var(--on-night-dim);
+}
+.stepBody {
+  display: grid;
+  gap: 10px;
+}
+.stepTitle {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.4rem);
+  line-height: 1.05;
+}
+.stepText {
+  color: var(--on-night-dim);
+  max-width: 44ch;
+}
+.stepPhoto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.right {
+  display: none;
+}
+
+/* ---------- Desktop cinematográfico ---------- */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .section {
+    height: 520vh;
+    padding: 0;
+  }
+  .stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .grid {
+    height: 100%;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(12px, 1.6vw, 28px);
+    align-items: center;
+    padding-top: var(--nav-h-compact);
+  }
+  .left {
+    grid-column: 1 / 7;
+    gap: 20px;
+  }
+  .headline {
+    font-size: clamp(2.4rem, 1rem + 3.6vw, 4.8rem);
+  }
+  .timeline {
+    margin-top: 4vh;
+  }
+  .steps {
+    gap: 0;
+  }
+  .step {
+    padding-block: 1.1vh;
+    opacity: 0.32;
+  }
+  .step[data-active] {
+    opacity: 1;
+  }
+  .stepTitle {
+    font-size: clamp(1.3rem, 0.8rem + 1vw, 1.9rem);
+  }
+  .stepText {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: max-height 0.8s var(--ease), opacity 0.6s var(--ease), transform 0.8s var(--ease);
+  }
+  .step[data-active] .stepText {
+    max-height: 6em;
+    opacity: 1;
+    transform: none;
+  }
+  .stepPhoto {
+    display: none;
+  }
+
+  .right {
+    grid-column: 8 / -1;
+    display: grid;
+    gap: 2vh;
+    align-self: center;
+  }
+  .bigNum {
+    position: relative;
+    height: clamp(4rem, 9vw, 9rem);
+    overflow: hidden;
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 9vw, 9rem);
+    font-weight: 300;
+    line-height: 1;
+  }
+  .bigNum span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateY(100%);
+    transition: transform 0.9s var(--ease);
+  }
+  .bigNum span[data-before] {
+    transform: translateY(-100%);
+  }
+  .bigNum span[data-active] {
+    transform: none;
+  }
+  .frame {
+    position: relative;
+    height: 58vh;
+    overflow: hidden;
+    background: var(--night-2);
+  }
+  .layer {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 1.1s var(--ease);
+  }
+  .layer[data-before] {
+    clip-path: inset(0 0 100% 0);
+  }
+  .layer[data-active] {
+    clip-path: inset(0 0 0 0);
+    z-index: 1;
+  }
+}
+
+/* desktop com movimento reduzido: lista em duas colunas */
+@media (min-width: 900px) and (prefers-reduced-motion: reduce) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px 48px;
+  }
+  .track,
+  .step::before {
+    display: none;
+  }
+  .timeline {
+    padding-left: 0;
+  }
+}

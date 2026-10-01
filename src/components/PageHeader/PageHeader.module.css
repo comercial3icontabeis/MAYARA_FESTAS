@@ -1,0 +1,45 @@
+.header {
+  background: var(--bg);
+  padding-top: calc(var(--nav-h) + clamp(40px, 10vh, 120px));
+  padding-bottom: clamp(48px, 8vh, 96px);
+}
+.grid {
+  display: grid;
+  gap: 24px;
+}
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+.crumbs li + li::before {
+  content: "/";
+  margin-right: 10px;
+  color: var(--text-faint);
+}
+.title {
+  font-size: clamp(3rem, 1.4rem + 6vw, 8rem);
+  max-width: 14ch;
+}
+.title em {
+  color: var(--accent);
+}
+.intro {
+  max-width: 46ch;
+  color: var(--text-dim);
+}
+.extra {
+  margin-top: 8px;
+}
+.photo {
+  margin-top: clamp(40px, 8vh, 96px);
+  aspect-ratio: 21 / 9;
+  background: var(--surface);
+}
+@media (max-width: 899px) {
+  .photo {
+    aspect-ratio: 4 / 5;
+  }
+}

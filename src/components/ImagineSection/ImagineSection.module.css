@@ -1,0 +1,122 @@
+.section {
+  position: relative;
+  z-index: 1;
+  height: 320vh;
+  background: var(--night);
+  color: var(--on-night);
+}
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+.camera {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  background: var(--night);
+  opacity: 0.15;
+}
+
+.title {
+  position: absolute;
+  left: var(--gutter);
+  bottom: clamp(40px, 10vh, 120px);
+  z-index: 2;
+  max-width: 12ch;
+  font-size: clamp(3rem, 1.4rem + 6vw, 8rem);
+}
+.titleLine {
+  display: block;
+}
+.title em {
+  color: var(--accent-soft);
+}
+
+.tags {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 10px;
+  color: var(--night);
+  background: color-mix(in srgb, var(--on-night) 92%, transparent);
+  translate: -50% -50%;
+  transform-origin: center;
+  white-space: nowrap;
+}
+.dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: pulse 2.4s var(--ease) infinite;
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.caption {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(40px, 10vh, 120px);
+  z-index: 2;
+  max-width: 30ch;
+  text-align: right;
+  color: var(--on-night);
+  text-shadow: 0 1px 24px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 899px) {
+  .section {
+    height: 260vh;
+  }
+  .caption {
+    left: var(--gutter);
+    text-align: left;
+  }
+  .tag {
+    padding: 6px 10px 6px 8px;
+  }
+}
+
+/* Movimento reduzido: imagem estática com tudo visível */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    height: auto;
+  }
+  .stage {
+    position: relative;
+    min-height: 640px;
+  }
+  .title {
+    top: calc(var(--nav-h) + 24px);
+    bottom: auto;
+  }
+}

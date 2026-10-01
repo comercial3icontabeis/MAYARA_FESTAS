@@ -1,0 +1,71 @@
+.body {
+  display: grid;
+  gap: clamp(56px, 10vh, 112px);
+  padding-bottom: clamp(96px, 16vh, 180px);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 48px 24px;
+}
+.item {
+  display: grid;
+  gap: 10px;
+}
+.itemPhoto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.itemName {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.itemDesc {
+  color: var(--text-dim);
+  font-size: var(--fs-small);
+}
+.empty {
+  padding: 32px 0;
+  border-block: 1px solid var(--line);
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.ctaText {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1rem + 1.4vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.15;
+  max-width: 26ch;
+}
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.related {
+  display: grid;
+  gap: 18px;
+}
+.related ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1rem + 0.8vw, 1.8rem);
+}
+
+@media (max-width: 899px) {
+  .cta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

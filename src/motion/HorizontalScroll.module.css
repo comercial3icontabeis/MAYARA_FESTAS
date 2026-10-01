@@ -1,0 +1,41 @@
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  will-change: transform;
+}
+.track:focus-visible {
+  outline-offset: -4px;
+}
+
+/* Mobile: trilho nativo com swipe */
+@media (max-width: 899px) {
+  .track {
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+  .track > * {
+    scroll-snap-align: start;
+  }
+}
+
+/* Movimento reduzido no desktop: grade simples, sem rolagem lateral */
+@media (min-width: 900px) and (prefers-reduced-motion: reduce) {
+  .track {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}

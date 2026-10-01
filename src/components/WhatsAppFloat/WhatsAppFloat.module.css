@@ -1,0 +1,43 @@
+.wrap {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .wrap {
+    position: fixed;
+    left: 50%;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    z-index: 80;
+    display: block;
+    translate: -50% 160%;
+    transition: translate 0.8s var(--ease);
+  }
+  .wrap[data-visible] {
+    translate: -50% 0;
+  }
+  :global(html.menu-open) .wrap {
+    translate: -50% 160%;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 22px 0 18px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--on-night);
+  background: var(--night);
+  border: 1px solid var(--line-night);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px -12px rgba(19, 17, 15, 0.55);
+}
+.btn svg {
+  width: 18px;
+  height: 18px;
+}
