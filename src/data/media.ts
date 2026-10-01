@@ -47,7 +47,7 @@ export const photo = (slot: string, brief: string, alt: string, ratio: string, t
 
 export const media = {
   hero: photo("hero", "Festa montada em plano aberto — a decoração mais bonita que você já fez", "Decoração de festa montada pela Mayara Festas", "16:9", "night"),
-  manifesto: photo("manifesto", "Detalhe de mesa posta ou painel decorado, luz natural", "Detalhe de uma decoração de festa", "4:5", "linen"),
+  manifesto: photo("manifesto", "Decoração montada, em alta resolução", "Decoração de 1 ano com tema de borboletas: arco de balões lilás, rosa e verde, painéis em arco com o nome Bella, mesa de cilindros com bolo, número 1 e flores", "4:5", "linen"),
   manifestoDetalhe: photo("manifesto-detalhe", "Close de um detalhe: arranjo, doce, peça decorativa", "Detalhe de peça decorativa", "3:4", "petal"),
   imagine: photo("imagine", "Composição completa: painéis, balões, mesa, flores e peças juntos", "Decoração rosa com painéis em arco, arco de balões com laço, mesa de cilindros brancos com flores, cilindros de acrílico e ursinho de pelúcia", "3:4", "petal"),
   antes: photo("antes", "ANTES — o espaço vazio (mesmo enquadramento da foto 'depois')", "Espaço vazio antes da montagem", "16:9", "stone"),

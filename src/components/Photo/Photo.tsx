@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { resolvePhoto, type Media } from "@/data/media";
+import { withBase } from "@/lib/asset";
 import styles from "./Photo.module.css";
 
 type Props = {
@@ -26,7 +27,7 @@ export function Photo({ media, sizes, priority, className, compact, quality = 85
   if (src) {
     return (
       <div className={cls}>
-        <Image src={src} alt={media.alt} fill sizes={sizes} priority={priority} quality={quality} className={styles.img} />
+        <Image src={withBase(src)} alt={media.alt} fill sizes={sizes} priority={priority} quality={quality} className={styles.img} />
       </div>
     );
   }

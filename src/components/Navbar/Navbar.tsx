@@ -8,6 +8,7 @@ import { company, instagramUrl } from "@/config/company";
 import { navLinks } from "@/lib/nav";
 import { useQuote } from "@/components/QuoteForm/QuoteProvider";
 import { whatsappLink, defaultWhatsAppMessage } from "@/lib/whatsapp";
+import { withBase } from "@/lib/asset";
 import styles from "./Navbar.module.css";
 
 export function Navbar() {
@@ -59,7 +60,7 @@ export function Navbar() {
         <div className={styles.inner}>
           <Link href="/" className={styles.logo} aria-label={`${company.name} — página inicial`}>
             {company.logo ? (
-              <Image src={company.logo} alt={company.name} width={140} height={40} priority />
+              <Image src={withBase(company.logo)} alt={company.name} width={140} height={40} priority />
             ) : (
               <span className={styles.wordmark}>{company.name}</span>
             )}

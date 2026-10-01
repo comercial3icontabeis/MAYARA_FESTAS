@@ -3,6 +3,8 @@ import { company } from "@/config/company";
 import { collections } from "@/data/collections";
 import { events } from "@/data/events";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = company.siteUrl;
   const now = new Date();

@@ -2,7 +2,8 @@
   "slots": {
     "evento-aniversarios": "/fotos/evento-aniversarios.jpg",
     "evento-festas-infantis": "/fotos/evento-festas-infantis.jpg",
-    "imagine": "/fotos/imagine.jpg"
+    "imagine": "/fotos/imagine.jpg",
+    "manifesto": "/fotos/manifesto.jpg"
   },
   "galeria": [
     "/fotos/galeria/01-manuela.jpg",
