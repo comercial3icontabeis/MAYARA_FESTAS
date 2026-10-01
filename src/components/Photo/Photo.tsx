@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { Media } from "@/data/media";
+import { resolvePhoto, type Media } from "@/data/media";
 import styles from "./Photo.module.css";
 
 type Props = {
@@ -15,35 +15,31 @@ type Props = {
 };
 
 /**
- * Imagem fotográfica do site. Sempre preenche o elemento pai (position: relative).
- * Sem `media.src`, renderiza um placeholder tonal identificado com a pauta da foto.
+ * Foto do site. Sempre preenche o elemento pai (que deve ter position: relative).
+ * Se existir arquivo em public/fotos/<slot>, mostra a foto real; senão, um espaço
+ * reservado que diz exatamente qual arquivo salvar e em que proporção.
  */
-export function Photo({ media, sizes, priority, className, compact, quality = 82, caption = "bottom" }: Props) {
+export function Photo({ media, sizes, priority, className, compact, quality = 85, caption = "bottom" }: Props) {
+  const src = resolvePhoto(media);
   const cls = [styles.photo, className].filter(Boolean).join(" ");
 
-  if (media.src) {
+  if (src) {
     return (
       <div className={cls}>
-        <Image
-          src={media.src}
-          alt={media.alt}
-          fill
-          sizes={sizes}
-          priority={priority}
-          quality={quality}
-          className={styles.img}
-        />
+        <Image src={src} alt={media.alt} fill sizes={sizes} priority={priority} quality={quality} className={styles.img} />
       </div>
     );
   }
 
+  const file = media.slot.endsWith("/") ? `fotos/${media.slot}qualquer-nome.jpg` : `fotos/${media.slot}.jpg`;
   return (
-    <div className={`${cls} ${styles.placeholder}`} data-tone={media.tone} role="img" aria-label={media.alt}>
-      <span className={styles.light} aria-hidden="true" />
+    <div className={`${cls} ${styles.placeholder}`} data-tone={media.tone} role="img" aria-label={`Espaço reservado para foto: ${media.alt}`}>
       {!compact && (
         <span className={caption === "top" ? `${styles.caption} ${styles.captionTop}` : styles.caption} aria-hidden="true">
-          <span className={styles.tag}>[ foto ]</span>
-          {media.brief}
+          <span className={styles.what}>{media.brief}</span>
+          <span className={styles.file}>
+            {file} · {media.ratio}
+          </span>
         </span>
       )}
     </div>

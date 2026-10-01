@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "fotos": "node scripts/scan-photos.mjs",
+    "predev": "node scripts/scan-photos.mjs",
     "dev": "next dev --webpack",
+    "prebuild": "node scripts/scan-photos.mjs",
     "build": "next build --webpack",
     "start": "next start",
     "typecheck": "tsc --noEmit"

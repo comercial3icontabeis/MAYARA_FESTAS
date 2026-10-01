@@ -1,4 +1,4 @@
-import { makeMedia, type Media } from "./media";
+import { photo, type Media } from "./media";
 
 /**
  * CATEGORIAS DO ACERVO
@@ -28,7 +28,7 @@ export const collections: Collection[] = [
     tagline: "Composições para diferentes estilos e formatos de evento.",
     intro:
       "Mesas e cadeiras para recepções, jantares, aniversários e casamentos — combinadas ao estilo e ao número de convidados de cada celebração.",
-    photo: makeMedia("Mesas e cadeiras montadas em salão, plano médio", "Mesas e cadeiras montadas para evento", "sand"),
+    photo: photo("acervo-mesas-e-cadeiras", "Mesas e cadeiras montadas em salão, plano médio", "Mesas e cadeiras montadas para evento", "4:3", "rose"),
     items: [],
   },
   {
@@ -37,7 +37,7 @@ export const collections: Collection[] = [
     tagline: "Pratos, taças e talheres que vestem a mesa.",
     intro:
       "Louças, cristais e talheres para mesas postas, jantares e recepções, escolhidos para combinar com a composição do evento.",
-    photo: makeMedia("Louças e taças sobre toalha de linho, luz natural", "Louças e taças de cristal em mesa posta", "linen"),
+    photo: photo("acervo-loucas-e-cristais", "Louças e taças sobre toalha de linho, luz natural", "Louças e taças de cristal em mesa posta", "4:3", "linen"),
     items: [],
   },
   {
@@ -46,7 +46,7 @@ export const collections: Collection[] = [
     tagline: "Os detalhes que dão personalidade ao ambiente.",
     intro:
       "Peças decorativas para compor mesas, painéis e ambientes, do mais clássico ao mais contemporâneo.",
-    photo: makeMedia("Peças decorativas agrupadas: vasos, castiçais, bandejas", "Peças decorativas para festas", "blush"),
+    photo: photo("acervo-decoracao", "Peças decorativas agrupadas: vasos, castiçais, bandejas", "Peças decorativas para festas", "4:3", "petal"),
     items: [],
   },
   {
@@ -55,7 +55,7 @@ export const collections: Collection[] = [
     tagline: "Sofás, aparadores e apoios para criar ambientes.",
     intro:
       "Mobiliário para lounges, recepções e áreas de convivência, pensado para acolher os convidados.",
-    photo: makeMedia("Lounge montado com sofá, poltronas e aparador", "Mobiliário de lounge para evento", "stone"),
+    photo: photo("acervo-mobiliario", "Lounge montado com sofá, poltronas e aparador", "Mobiliário de lounge para evento", "4:3", "stone"),
     items: [],
   },
   {
@@ -63,7 +63,7 @@ export const collections: Collection[] = [
     title: "Têxteis",
     tagline: "Toalhas, caminhos e guardanapos com textura e cor.",
     intro: "Toalhas, caminhos de mesa e guardanapos que trazem cor, textura e acabamento à composição.",
-    photo: makeMedia("Close de tecidos: toalha, caminho e guardanapo", "Toalhas e guardanapos de tecido", "sage"),
+    photo: photo("acervo-texteis", "Close de tecidos: toalha, caminho e guardanapo", "Toalhas e guardanapos de tecido", "4:3", "sage"),
     items: [],
   },
   {
@@ -71,7 +71,7 @@ export const collections: Collection[] = [
     title: "Acessórios",
     tagline: "Bandejas, suportes e pequenas peças que completam tudo.",
     intro: "Bandejas, suportes, boleiras e acessórios que completam a mesa e facilitam o serviço.",
-    photo: makeMedia("Bandejas, boleiras e suportes sobre aparador", "Bandejas e suportes para festas", "linen"),
+    photo: photo("acervo-acessorios", "Bandejas, boleiras e suportes sobre aparador", "Bandejas e suportes para festas", "4:3", "linen"),
     items: [],
   },
   {
@@ -79,7 +79,7 @@ export const collections: Collection[] = [
     title: "Itens para festas infantis",
     tagline: "Delicadeza e cor para as primeiras celebrações.",
     intro: "Peças e mobiliário para festas infantis com composição delicada, segura e cheia de personalidade.",
-    photo: makeMedia("Mesa de festa infantil sofisticada, tons suaves", "Mesa decorada para festa infantil", "blush"),
+    photo: photo("acervo-festas-infantis", "Mesa de festa infantil sofisticada, tons suaves", "Mesa decorada para festa infantil", "4:3", "petal"),
     items: [],
   },
   {
@@ -87,7 +87,7 @@ export const collections: Collection[] = [
     title: "Outros",
     tagline: "Se a sua festa precisa, a gente procura junto.",
     intro: "Outros itens do acervo. Conte o que você está planejando e verificamos a disponibilidade.",
-    photo: makeMedia("Detalhes diversos do acervo", "Itens diversos do acervo", "ember"),
+    photo: photo("acervo-outros", "Detalhes diversos do acervo", "Itens diversos do acervo", "4:3", "wine"),
     items: [],
   },
 ];
