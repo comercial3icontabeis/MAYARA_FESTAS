@@ -133,10 +133,6 @@ export function Footer() {
           Voltar ao topo ↑
         </a>
       </div>
-
-      <p className={styles.giant} aria-hidden="true">
-        {company.name}
-      </p>
     </footer>
   );
 }

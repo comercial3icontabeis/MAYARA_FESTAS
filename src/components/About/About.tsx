@@ -16,14 +16,13 @@ export function About() {
     <section id="sobre" className={styles.section} aria-labelledby="sobre-title" tabIndex={-1}>
       <div className={`${styles.grid} container`}>
         <div className={styles.head}>
-          <p className="label dim">[ Sobre ]</p>
           <RevealText as="h2" id="sobre-title" className="h2">
-            Por trás de cada evento, <em>existe uma equipe.</em>
+            Por trás de cada evento, existe uma equipe.
           </RevealText>
         </div>
 
         <RevealImage className={styles.team}>
-          <Photo media={media.aboutTeam} sizes="(min-width: 900px) 56vw, 100vw" />
+          <Photo media={media.sobreEquipe} sizes="(min-width: 900px) 56vw, 100vw" />
         </RevealImage>
 
         <div className={styles.copy}>
@@ -40,13 +39,13 @@ export function About() {
         </div>
 
         <ParallaxImage className={styles.stock} amount={14}>
-          <Photo media={media.aboutStock} sizes="(min-width: 900px) 24vw, 50vw" />
+          <Photo media={media.sobreAcervo} sizes="(min-width: 900px) 24vw, 50vw" />
         </ParallaxImage>
         <ParallaxImage className={styles.backstage} amount={8}>
-          <Photo media={media.aboutBackstage} sizes="(min-width: 900px) 30vw, 50vw" />
+          <Photo media={media.sobreBastidores} sizes="(min-width: 900px) 30vw, 50vw" />
         </ParallaxImage>
         <ParallaxImage className={styles.prep} amount={18}>
-          <Photo media={media.aboutPrep} sizes="(min-width: 900px) 22vw, 50vw" />
+          <Photo media={media.sobrePreparacao} sizes="(min-width: 900px) 22vw, 50vw" />
         </ParallaxImage>
       </div>
     </section>

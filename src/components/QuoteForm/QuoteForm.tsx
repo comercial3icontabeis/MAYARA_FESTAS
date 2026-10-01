@@ -4,7 +4,6 @@ import { useEffect, useId, useState, type FormEvent } from "react";
 import { company, hasWhatsApp } from "@/config/company";
 import { events } from "@/data/events";
 import { buildQuoteMessage, whatsappLink, type QuoteData } from "@/lib/whatsapp";
-import { Arrow } from "@/components/ui/Arrow";
 import styles from "./QuoteForm.module.css";
 
 const EMPTY: QuoteData = { name: "", whatsapp: "", eventType: "", date: "", guests: "", city: "", needs: "" };
@@ -101,7 +100,7 @@ export function QuoteForm({ defaultEventType = "", titleId }: Props) {
         <div className={styles.actions}>
           {link ? (
             <a className="btn" href={link} target="_blank" rel="noopener noreferrer">
-              Enviar pelo WhatsApp <Arrow />
+              Enviar pelo WhatsApp
             </a>
           ) : (
             <>
@@ -187,7 +186,7 @@ export function QuoteForm({ defaultEventType = "", titleId }: Props) {
 
       <div className={styles.actions}>
         <button type="submit" className="btn">
-          Continuar <Arrow />
+          Continuar
         </button>
         <p className={styles.hint}>
           {hasWhatsApp()

@@ -1,5 +1,6 @@
 .footer {
   position: relative;
+  padding-bottom: 8px;
   z-index: 1;
   overflow: hidden;
   background: var(--night);
@@ -52,19 +53,6 @@
   color: var(--on-night-dim);
 }
 
-.giant {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(4rem, 17vw, 22rem);
-  line-height: 0.78;
-  letter-spacing: -0.04em;
-  white-space: nowrap;
-  text-align: center;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--line-night);
-  margin-bottom: -0.12em;
-  user-select: none;
-}
 
 @media (max-width: 1100px) {
   .grid {

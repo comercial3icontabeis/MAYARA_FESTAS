@@ -42,7 +42,7 @@ export function FinalCTA() {
       <div className={styles.stage}>
         <div className={styles.frame}>
           <div className={styles.zoom}>
-            <Photo media={media.finalCta} sizes="100vw" quality={85} caption="top" />
+            <Photo media={media.contatoFinal} sizes="100vw" quality={85} caption="top" />
           </div>
           <div className={styles.shade} aria-hidden="true" />
         </div>
@@ -52,7 +52,7 @@ export function FinalCTA() {
           <h2 id="contato-title" className={`${styles.title} display`}>
             <span className={styles.line}>Vamos criar</span>
             <span className={styles.line}>
-              esse <em>momento?</em>
+              esse momento?
             </span>
           </h2>
           <p className={`${styles.text} lead`}>

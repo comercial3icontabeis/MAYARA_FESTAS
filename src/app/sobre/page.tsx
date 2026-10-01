@@ -15,10 +15,9 @@ export default function SobrePage() {
   return (
     <>
       <PageHeader
-        kicker="[ Sobre ]"
         title={
           <>
-            Quem está por trás <em>dos detalhes.</em>
+            Quem está por trás dos detalhes.
           </>
         }
         crumbs={[{ name: "Sobre", path: "/sobre" }]}

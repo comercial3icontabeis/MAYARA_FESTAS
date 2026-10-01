@@ -10,7 +10,7 @@ npm start
 npm run typecheck
 ```
 
-> Os scripts usam `--webpack`: o Turbopack do Next 16 falha no Windows ao baixar a fonte Manrope via `next/font`.
+> Os scripts usam `--webpack`: o Turbopack do Next 16 falha no Windows ao baixar fontes via `next/font`.
 
 ## Antes de publicar — preencha os dados reais
 
@@ -26,16 +26,39 @@ Nada no site foi inventado. Campos vazios aparecem como placeholders identificad
 | Portfólio (somente eventos reais) | `src/data/portfolio.ts` |
 | Depoimentos (somente reais, com autorização) | `src/data/testimonials.ts` |
 | Etapas do "Como funciona" | `src/data/process.ts` |
-| Fotos do hero, manifesto, imagine, antes/depois, sobre, CTA final | `src/data/media.ts` |
+| Fotos | salvar em `public/fotos/` (ver tabela abaixo) |
 | Posição das etiquetas da seção "Imagine" | `imagineHotspots` em `src/data/media.ts` |
 | Cor de destaque da marca | `--accent` em `src/app/globals.css` |
-| Logo (opcional; sem logo usa wordmark tipográfico) | `company.logo` → arquivo em `/public/images` |
+| Logo (opcional; sem logo usa wordmark tipográfico) | `company.logo` → arquivo em `/public` |
 
 **WhatsApp:** somente dígitos com DDI + DDD (ex.: `55` + DDD + número). Sem número, os botões "Falar no WhatsApp" viram "Solicitar orçamento" e o formulário oferece "Copiar mensagem" — nenhum CTA fica quebrado.
 
-### Fotografias
+### Fotos das decorações
 
-Coloque os arquivos em `public/images/` e informe o caminho no campo `src` (ex.: `src: "/images/hero.jpg"`). Use JPG/WebP de alta qualidade, lado maior ≥ 2400px — o Next Image gera AVIF/WebP responsivos e faz lazy loading. Cada placeholder mostra a pauta da foto esperada (`brief`). Antes/depois devem ter o mesmo enquadramento.
+Não precisa mexer em código: **salve a foto com o nome do espaço em `public/fotos/`** (.jpg, .jpeg, .png, .webp ou .avif).
+O site detecta sozinho ao rodar `npm run dev` / `npm run build` (ou `npm run fotos`). Enquanto o arquivo não existir,
+o espaço mostra o nome esperado e a proporção recomendada.
+
+| Arquivo | Onde aparece | Proporção |
+|---|---|---|
+| `galeria/*.jpg` (qualquer nome; use 01-, 02-… para ordenar) | Portfólio + painéis em arco do hero (3 primeiras) | 3:4 |
+| `hero.jpg` | Hero em tela cheia (substitui os painéis) — só com foto em alta | 16:9 |
+| `manifesto.jpg`, `manifesto-detalhe.jpg` | "Não é sobre alugar objetos" | 4:5 · 3:4 |
+| `imagine.jpg` | "Agora imagine tudo isso junto" (ajuste as etiquetas em `imagineHotspots`) | 3:4 |
+| `acervo-<categoria>.jpg` | Rolagem horizontal do acervo e páginas /acervo | 4:3 |
+| `evento-<tipo>.jpg` | Tipos de evento e páginas /eventos | 4:5 |
+| `antes.jpg`, `depois.jpg` | Antes/depois (mesmo enquadramento) | 16:9 |
+| `etapa-1.jpg` … `etapa-5.jpg` | Como funciona | 4:3 |
+| `sobre-equipe.jpg`, `sobre-acervo.jpg`, `sobre-bastidores.jpg`, `sobre-preparacao.jpg` | Sobre | 4:3 · 3:4 · 1:1 · 4:5 |
+| `contato-final.jpg` | CTA final | 16:9 |
+
+Categorias: `mesas-e-cadeiras`, `loucas-e-cristais`, `decoracao`, `mobiliario`, `texteis`, `acessorios`, `festas-infantis`, `outros`.
+Eventos: `casamentos`, `aniversarios`, `festas-infantis`, `corporativos`, `chas-e-recepcoes`, `celebracoes-especiais`.
+
+Título e descrição (alt) de cada foto da galeria ficam em `src/data/portfolio.ts`, pelo nome do arquivo.
+**Use as fotos originais em alta resolução** (lado maior ≥ 2400px) — o Next Image gera AVIF/WebP leves automaticamente.
+
+Design system (cores, tipografia, o motivo do arco, anti-padrões): `design-system/mayara-festas/MASTER.md`.
 
 ## Estrutura
 

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Arrow } from "@/components/ui/Arrow";
 
 export default function NotFound() {
   return (
@@ -7,13 +6,12 @@ export default function NotFound() {
       className="container"
       style={{ minHeight: "80vh", display: "grid", alignContent: "center", gap: 24, paddingTop: "var(--nav-h)" }}
     >
-      <p className="label dim">[ 404 ]</p>
       <h1 className="display" style={{ fontSize: "var(--fs-h2)" }}>
-        Esta página <em>não existe.</em>
+        Esta página não existe.
       </h1>
       <div>
         <Link href="/" className="btn">
-          Voltar ao início <Arrow />
+          Voltar ao início
         </Link>
       </div>
     </section>

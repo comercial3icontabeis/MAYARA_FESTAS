@@ -21,17 +21,17 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "#13110f",
-          color: "#f1ebe2",
+          background: "#2A141E",
+          color: "#F7EFEC",
           fontFamily: "serif",
         }}
       >
-        <div style={{ fontSize: 22, letterSpacing: 6, textTransform: "uppercase", color: "rgba(241,235,226,.6)" }}>
+        <div style={{ fontSize: 22, letterSpacing: 6, textTransform: "uppercase", color: "rgba(247,239,236,.7)" }}>
           [ Celebrações ]
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 104, lineHeight: 0.95 }}>
           <span>A festa começa</span>
-          <span style={{ fontStyle: "italic", color: "#c99a83" }}>nos detalhes.</span>
+          <span>nos detalhes.</span>
         </div>
         <div style={{ fontSize: 30 }}>{company.name}</div>
       </div>

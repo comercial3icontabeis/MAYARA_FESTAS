@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Manrope } from "next/font/google";
+import { Bodoni_Moda, Jost } from "next/font/google";
 import { company, isFilled } from "@/config/company";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { Navbar } from "@/components/Navbar/Navbar";
@@ -9,7 +9,7 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat/WhatsAppFloat";
 import { MotionProvider } from "@/motion/MotionProvider";
 import "./globals.css";
 
-const serif = Newsreader({
+const serif = Bodoni_Moda({
   subsets: ["latin"],
   style: ["normal", "italic"],
   axes: ["opsz"],
@@ -17,9 +17,8 @@ const serif = Newsreader({
   display: "swap",
 });
 
-const sans = Manrope({
+const sans = Jost({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f4f0ea",
+  themeColor: "#f7efec",
   width: "device-width",
   initialScale: 1,
 };

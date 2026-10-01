@@ -8,9 +8,8 @@ export function TrustSection() {
     <section className={styles.section} aria-labelledby="confianca-title">
       <div className={`${styles.grid} container`}>
         <div className={styles.head}>
-          <p className="label dim">[ Confiança ]</p>
           <RevealText as="h2" id="confianca-title" className="h2">
-            Detalhes que fazem <em>diferença.</em>
+            Detalhes que fazem diferença.
           </RevealText>
         </div>
 
@@ -36,7 +35,6 @@ export function TrustSection() {
         <ul className={styles.diffs}>
           {company.differentials.map((d, i) => (
             <li key={d}>
-              <span className="num">{String(i + 1).padStart(2, "0")}</span>
               <span className={d.startsWith("[") ? "ph" : undefined}>{d}</span>
             </li>
           ))}

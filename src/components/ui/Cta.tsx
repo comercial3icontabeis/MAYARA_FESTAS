@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import { useQuote } from "@/components/QuoteForm/QuoteProvider";
 import { defaultWhatsAppMessage, whatsappLink } from "@/lib/whatsapp";
 import { MagneticButton } from "@/motion/MagneticButton";
-import { Arrow } from "./Arrow";
 
 type Variant = "solid" | "ghost";
 type Tone = "dark" | "light";
@@ -26,7 +25,7 @@ export function QuoteButton({
   const { openQuote } = useQuote();
   const btn = (
     <button type="button" className={cls(variant, tone, className)} onClick={() => openQuote(eventType)} aria-haspopup="dialog">
-      {children} <Arrow />
+      {children}
     </button>
   );
   return magnetic ? <MagneticButton>{btn}</MagneticButton> : btn;
@@ -55,7 +54,7 @@ export function WhatsAppButton({
   }
   const a = (
     <a className={cls(variant, tone, className)} href={href} target="_blank" rel="noopener noreferrer">
-      {children} <Arrow />
+      {children}
     </a>
   );
   return magnetic ? <MagneticButton>{a}</MagneticButton> : a;

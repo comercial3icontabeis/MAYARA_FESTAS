@@ -46,9 +46,8 @@ export function BeforeAfter() {
     <section className={styles.section} aria-labelledby="ba-title">
       <div className="container">
         <header className={styles.head}>
-          <p className="label dim">[ Transformação ]</p>
           <RevealText as="h2" id="ba-title" className="h2">
-            Do espaço à <em>celebração.</em>
+            Do espaço à celebração.
           </RevealText>
           <p className={styles.intro}>Arraste para ver o mesmo ambiente antes e depois da composição.</p>
         </header>
@@ -64,10 +63,10 @@ export function BeforeAfter() {
             onPointerCancel={onUp}
           >
             <div className={styles.layer}>
-              <Photo media={media.before} sizes="(min-width: 1680px) 1600px, 100vw" />
+              <Photo media={media.antes} sizes="(min-width: 1680px) 1600px, 100vw" />
             </div>
             <div className={styles.layer} style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
-              <Photo media={media.after} sizes="(min-width: 1680px) 1600px, 100vw" />
+              <Photo media={media.depois} sizes="(min-width: 1680px) 1600px, 100vw" />
             </div>
 
             <span className={`${styles.tag} ${styles.tagBefore} label`} style={{ opacity: pos < 12 ? 0 : 1 }}>

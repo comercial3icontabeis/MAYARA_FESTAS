@@ -1,30 +1,36 @@
 /* =====================================================================
-   DESIGN SYSTEM
-   Paleta inicial em tons naturais. Ao receber a identidade visual da
-   marca, ajuste apenas os tokens abaixo (principalmente --accent).
+   DESIGN SYSTEM — ver design-system/mayara-festas/MASTER.md
+   Papel rosé + vinho, com folha e ouro velho em detalhes.
+   As cores fortes do site vêm das fotos das decorações.
    ===================================================================== */
 
 :root {
-  --bg: #f4f0ea;
-  --surface: #e9e2d8;
-  --surface-2: #ddd4c7;
-  --text: #191714;
-  --text-dim: rgba(25, 23, 20, 0.62);
-  --text-faint: rgba(25, 23, 20, 0.4);
-  --line: rgba(25, 23, 20, 0.14);
+  /* Papel rosé / rosa seco */
+  --bg: #f7efec;
+  --surface: #ecdcd6;
+  --surface-2: #e2cbc4;
+  /* Vinho */
+  --text: #3b1d29;
+  --text-dim: rgba(59, 29, 41, 0.72);
+  --text-faint: rgba(59, 29, 41, 0.5);
+  --line: rgba(59, 29, 41, 0.16);
 
-  --night: #13110f;
-  --night-2: #1e1b17;
-  --on-night: #f1ebe2;
-  --on-night-dim: rgba(241, 235, 226, 0.64);
-  --line-night: rgba(241, 235, 226, 0.16);
+  /* Vinho noite (seções escuras) */
+  --night: #2a141e;
+  --night-2: #3a2230;
+  --on-night: #f7efec;
+  --on-night-dim: rgba(247, 239, 236, 0.74);
+  --line-night: rgba(247, 239, 236, 0.18);
 
-  /* [DEFINIR CONFORME IDENTIDADE DA MARCA] */
-  --accent: #9b5a43;
-  --accent-soft: #c99a83;
+  /* Rosa vinho: texto de destaque e erros (contraste AA sobre o papel) */
+  --accent: #8a3550;
+  --accent-soft: #e2b6c0;
+  /* Detalhes não textuais */
+  --gold: #b0894a;
+  --leaf: #8c9879;
 
-  --font-display: var(--font-serif), "Newsreader", Georgia, serif;
-  --font-ui: var(--font-sans), "Manrope", system-ui, sans-serif;
+  --font-display: var(--font-serif), "Bodoni Moda", Didot, Georgia, serif;
+  --font-ui: var(--font-sans), "Jost", system-ui, sans-serif;
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -112,7 +118,7 @@ button {
 }
 
 :focus-visible {
-  outline: 1.5px solid var(--accent);
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 
@@ -144,44 +150,43 @@ button {
   transform: none;
 }
 
-/* ---------- Typography ---------- */
+/* ---------- Typography ----------
+   Bodoni Moda nos títulos, Jost no resto. Caixa normal em tudo
+   (a única etiqueta em caixa alta é o [ CELEBRAÇÕES ] do hero). */
 .label {
   font-family: var(--font-ui);
-  font-size: var(--fs-label);
+  font-size: var(--fs-small);
   font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   line-height: 1.4;
 }
 .display {
   font-family: var(--font-display);
-  font-weight: 300;
-  line-height: 0.92;
-  letter-spacing: -0.02em;
-}
-.display em,
-.h2 em {
-  font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
 }
 .h2 {
   font-family: var(--font-display);
   font-size: var(--fs-h2);
-  font-weight: 300;
-  line-height: 0.96;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 .h3 {
   font-family: var(--font-display);
   font-size: var(--fs-h3);
   font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  line-height: 1.08;
+  letter-spacing: -0.005em;
 }
 .lead {
   font-size: var(--fs-lead);
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 400;
 }
 .dim {
   color: var(--text-dim);
@@ -217,13 +222,12 @@ button {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   min-height: 52px;
-  padding: 0 26px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  padding: 0 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   color: var(--btn-fg);
   background: var(--btn-bg);
   border: 1px solid var(--btn-bg);
@@ -248,6 +252,13 @@ button {
 .btn:hover {
   border-color: var(--accent);
   color: #fff;
+}
+.btn--light::before {
+  background: var(--accent-soft);
+}
+.btn--light:hover {
+  border-color: var(--accent-soft);
+  color: var(--night);
 }
 .arrow {
   flex: none;

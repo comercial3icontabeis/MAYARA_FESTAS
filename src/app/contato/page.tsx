@@ -16,10 +16,9 @@ export default function ContatoPage() {
   return (
     <>
       <PageHeader
-        kicker="[ Contato ]"
         title={
           <>
-            Vamos criar esse <em>momento?</em>
+            Vamos criar esse momento?
           </>
         }
         intro="Conte para a gente o que você está planejando. A partir daí, construímos juntos a composição ideal."

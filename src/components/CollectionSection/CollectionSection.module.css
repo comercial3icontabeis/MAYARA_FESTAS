@@ -12,9 +12,6 @@
   row-gap: 24px;
   padding-bottom: clamp(48px, 10vh, 120px);
 }
-.kicker {
-  grid-column: 1 / -1;
-}
 .title {
   grid-column: 1 / 8;
 }

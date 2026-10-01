@@ -16,10 +16,9 @@ export default function EventosPage() {
   return (
     <>
       <PageHeader
-        kicker="[ Eventos ]"
         title={
           <>
-            Para cada ocasião, <em>uma composição.</em>
+            Para cada ocasião, uma composição.
           </>
         }
         intro="Do jantar íntimo à grande recepção: cada tipo de evento pede peças, escala e atmosfera próprias."

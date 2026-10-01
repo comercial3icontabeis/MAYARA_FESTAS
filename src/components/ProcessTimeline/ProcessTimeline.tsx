@@ -73,14 +73,13 @@ export function ProcessTimeline() {
       <div className={styles.stage}>
         <div className={`${styles.grid} container`}>
           <div className={styles.left}>
-            <p className="label dim">[ Como funciona ]</p>
             <h2 id="processo-title" className={`${styles.headline} h2`}>
               <span className="line-mask">
                 <span>Simples para você.</span>
               </span>
               <span className="line-mask">
                 <span>
-                  <em>Cuidado</em> em cada etapa.
+                  Cuidado em cada etapa.
                 </span>
               </span>
             </h2>

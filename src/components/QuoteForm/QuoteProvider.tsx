@@ -51,9 +51,8 @@ export function QuoteProvider({ children }: { children: ReactNode }) {
         <div className={styles.panel}>
           <header className={styles.head}>
             <div>
-              <p className="label dim">Orçamento</p>
               <h2 id="quote-title" className={styles.title}>
-                Conte o que você está <em>planejando</em>.
+                Conte o que você está planejando.
               </h2>
             </div>
             <button type="button" className={styles.close} onClick={close} aria-label="Fechar">

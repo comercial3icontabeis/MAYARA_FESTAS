@@ -10,7 +10,7 @@ export type GalleryItem = {
   empty: boolean;
 };
 
-const TONES: Tone[] = ["petal", "wine", "linen", "sage", "rose", "night"];
+const TONES: Tone[] = ["petal", "linen", "sage", "rose", "stone", "petal"];
 
 /**
  * Fotos de public/fotos/galeria (em ordem) + espaços vazios até completar

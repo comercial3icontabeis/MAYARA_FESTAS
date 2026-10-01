@@ -8,9 +8,8 @@ export function CollectionSection() {
   return (
     <section id="acervo" className={styles.section} aria-labelledby="acervo-title" tabIndex={-1}>
       <header className={`${styles.head} container`}>
-        <p className={`${styles.kicker} label dim`}>[ Acervo ]</p>
         <RevealText as="h2" id="acervo-title" className={`${styles.title} h2`}>
-          Um acervo para <em>cada</em> momento.
+          Um acervo para cada momento.
         </RevealText>
 
         <div className={styles.side}>

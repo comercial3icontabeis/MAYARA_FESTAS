@@ -10,22 +10,24 @@ import { TrustSection } from "@/components/TrustSection/TrustSection";
 import { Testimonials } from "@/components/Testimonials/Testimonials";
 import { About } from "@/components/About/About";
 import { FinalCTA } from "@/components/FinalCTA/FinalCTA";
+import { getGallery } from "@/data/gallery";
 
 /**
  * Jornada: inspiração → descoberta → imaginação → confiança → orçamento.
  */
 export default function Home() {
+  const gallery = getGallery();
   return (
     <>
       {/* Inspiração */}
-      <Hero />
+      <Hero panels={gallery} />
       <EditorialIntro />
       {/* Descoberta */}
       <CollectionSection />
       {/* Imaginação */}
       <ImagineSection />
       <EventTypes />
-      <Portfolio />
+      <Portfolio items={gallery} />
       <BeforeAfter />
       {/* Confiança */}
       <ProcessTimeline />

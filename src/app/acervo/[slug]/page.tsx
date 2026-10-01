@@ -33,7 +33,6 @@ export default async function CollectionPage({ params }: Params) {
   return (
     <>
       <PageHeader
-        kicker="[ Acervo ]"
         title={c.title}
         intro={c.intro}
         photo={c.photo}

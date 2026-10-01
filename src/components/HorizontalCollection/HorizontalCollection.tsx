@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import { collections, type Collection } from "@/data/collections";
 import { Photo } from "@/components/Photo/Photo";
-import { Arrow } from "@/components/ui/Arrow";
 import { HorizontalScroll, useHorizontalAnimation } from "@/motion/HorizontalScroll";
 import { gsap, MQ, useGSAP } from "@/lib/gsap";
 import styles from "./HorizontalCollection.module.css";
@@ -59,7 +58,7 @@ function Panel({ c, index }: { c: Collection; index: number }) {
         </h3>
         <p className={styles.tagline}>“{c.tagline}”</p>
         <Link href={`/acervo/${c.slug}`} className={`${styles.more} label`}>
-          <span className="link-line">Ver categoria</span> <Arrow />
+          <span className="link-line">Ver categoria</span>
         </Link>
       </div>
     </article>
@@ -94,10 +93,10 @@ export function HorizontalCollection() {
       ))}
       <div className={styles.end}>
         <p className="h3">
-          Não encontrou o que procura? <em>Fale com a gente.</em>
+          Não encontrou o que procura? Fale com a gente.
         </p>
         <Link href="/acervo" className={`${styles.more} label`}>
-          <span className="link-line">Ver todo o acervo</span> <Arrow />
+          <span className="link-line">Ver todo o acervo</span>
         </Link>
       </div>
     </HorizontalScroll>

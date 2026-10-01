@@ -34,7 +34,6 @@ export default async function EventPage({ params }: Params) {
   return (
     <>
       <PageHeader
-        kicker="[ Eventos ]"
         title={e.title}
         intro={e.intro}
         photo={e.photo}

@@ -16,10 +16,9 @@ export default function AcervoPage() {
   return (
     <>
       <PageHeader
-        kicker="[ Acervo ]"
         title={
           <>
-            Um acervo para <em>cada momento.</em>
+            Um acervo para cada momento.
           </>
         }
         intro={`Peças para locação${where}, escolhidas para conversar entre si e compor ambientes completos.`}

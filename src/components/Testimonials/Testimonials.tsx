@@ -44,9 +44,8 @@ export function Testimonials() {
     >
       <div className={`${styles.grid} container`}>
         <div className={styles.head}>
-          <p className="label dim">[ Depoimentos ]</p>
           <RevealText as="h2" id="depoimentos-title" className={`${styles.title} h2`}>
-            Quem celebrou com a gente, <em>conta.</em>
+            Quem celebrou com a gente, conta.
           </RevealText>
         </div>
 

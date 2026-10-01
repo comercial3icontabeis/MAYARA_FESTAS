@@ -10,7 +10,6 @@ import styles from "./PageHeader.module.css";
 type Crumb = { name: string; path: string };
 
 type Props = {
-  kicker: string;
   title: ReactNode;
   intro?: ReactNode;
   photo?: Media;
@@ -19,7 +18,7 @@ type Props = {
 };
 
 /** Cabeçalho editorial das páginas internas (H1 + breadcrumb com Schema.org). */
-export function PageHeader({ kicker, title, intro, photo, crumbs, children }: Props) {
+export function PageHeader({ title, intro, photo, crumbs, children }: Props) {
   const all = [{ name: "Início", path: "/" }, ...crumbs];
   return (
     <header className={styles.header}>
@@ -40,7 +39,6 @@ export function PageHeader({ kicker, title, intro, photo, crumbs, children }: Pr
             ))}
           </ol>
         </nav>
-        <p className="label dim">{kicker}</p>
         <RevealText as="h1" className={`${styles.title} display`} start="top 100%">
           {title}
         </RevealText>

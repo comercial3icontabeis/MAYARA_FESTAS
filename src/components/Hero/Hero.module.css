@@ -3,141 +3,142 @@
   z-index: 0;
   height: 100vh;
   height: 100svh;
-  min-height: 560px;
+  min-height: 600px;
   overflow: hidden;
   color: var(--on-night);
   background: var(--night);
 }
 
-.media,
-.zoom {
+/* ---------- Modo foto em tela cheia ---------- */
+.bleed,
+.bleedZoom {
   position: absolute;
   inset: 0;
 }
-.zoom {
+.bleedZoom {
   will-change: transform;
 }
 .shade {
   position: absolute;
   inset: 0;
-  /* camada sutil: só o suficiente para legibilidade */
-  background:
-    linear-gradient(180deg, rgba(19, 17, 15, 0.38) 0%, rgba(19, 17, 15, 0) 26%),
-    linear-gradient(0deg, rgba(19, 17, 15, 0.62) 0%, rgba(19, 17, 15, 0.12) 52%, rgba(19, 17, 15, 0) 70%);
-  opacity: 1;
+  background: linear-gradient(90deg, rgba(42, 20, 30, 0.7) 0%, rgba(42, 20, 30, 0.2) 55%, rgba(42, 20, 30, 0) 80%),
+    linear-gradient(0deg, rgba(42, 20, 30, 0.45) 0%, rgba(42, 20, 30, 0) 40%);
 }
 
-.content {
+/* ---------- Modo painéis em arco ---------- */
+.panels {
+  position: absolute;
+  top: calc(var(--nav-h) + 4vh);
+  bottom: 0;
+  right: var(--gutter);
+  width: min(58vw, 980px);
+  display: grid;
+  grid-template-columns: 0.9fr 1fr 0.86fr;
+  align-items: end;
+  gap: clamp(10px, 1.4vw, 22px);
+}
+.arch {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  /* o arco: semicírculo no topo, base reta — como os painéis de festa */
+  border-radius: 999px 999px 0 0;
+  background: var(--night-2);
+  will-change: transform;
+}
+.arch[data-i="0"] {
+  height: 70%;
+}
+.arch[data-i="1"] {
+  height: 92%;
+}
+.arch[data-i="2"] {
+  height: 62%;
+}
+
+/* ---------- Texto ---------- */
+.copy {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
-  grid-template-rows: 1fr auto auto;
-  align-items: end;
-  column-gap: 48px;
+  align-content: end;
+  justify-items: start;
+  gap: 24px;
   height: 100%;
   padding-top: calc(var(--nav-h) + 24px);
-  padding-bottom: clamp(36px, 8vh, 88px);
-}
-
-.label {
-  grid-column: 1 / -1;
-  align-self: end;
-  margin-bottom: clamp(16px, 3vh, 32px);
-  color: var(--on-night-dim);
-}
-
-.title {
-  grid-column: 1;
-  font-size: var(--fs-h1);
+  padding-bottom: clamp(40px, 9vh, 96px);
   will-change: transform;
 }
-.title em {
-  color: color-mix(in srgb, var(--on-night) 86%, var(--accent-soft));
+.label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--on-night-dim);
 }
-
-.aside {
-  grid-column: 2;
-  display: grid;
-  gap: 28px;
-  padding-bottom: 0.6em;
+.title {
+  font-size: clamp(3.2rem, 1.2rem + 4.6vw, 6.6rem);
+  text-shadow: 0 2px 30px rgba(42, 20, 30, 0.35);
 }
 .sub {
+  max-width: 30ch;
   color: var(--on-night-dim);
-  max-width: 34ch;
 }
 .ctas {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 8px;
 }
 
-.scroll {
-  position: absolute;
-  z-index: 1;
-  right: var(--gutter);
-  top: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  color: var(--on-night-dim);
-  writing-mode: vertical-rl;
-}
-.scrollLine {
-  position: relative;
-  width: 1px;
-  height: 64px;
-  overflow: hidden;
-  background: var(--line-night);
-}
-.scrollLine::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--on-night);
-  animation: drip 2.4s var(--ease-in-out) infinite;
-}
-@keyframes drip {
-  0% {
-    transform: translateY(-100%);
-  }
-  60%,
-  100% {
-    transform: translateY(100%);
-  }
+/* No modo painéis o texto ocupa a coluna esquerda */
+.hero[data-mode="panels"] .copy {
+  padding-right: calc(min(58vw, 980px) + var(--gutter));
 }
 
 @media (max-width: 899px) {
-  .content {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: 1fr auto auto auto;
-    row-gap: 28px;
+  /* Mobile: painéis em cima, texto embaixo, em fluxo normal (sem sobreposição) */
+  .hero[data-mode="panels"] {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100svh;
   }
-  .label {
-    margin-bottom: 0;
+  .panels {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    flex: none;
+    width: auto;
+    height: 30svh;
+    min-height: 200px;
+    margin: calc(var(--nav-h) + 4px) var(--gutter) 0;
   }
-  .aside {
-    grid-column: 1;
-    padding-bottom: 0;
-    gap: 22px;
+  .hero[data-mode="panels"] .copy {
+    flex: 1;
+    height: auto;
+    padding-top: 28px;
+    padding-right: var(--gutter);
   }
-  .scroll {
-    display: none;
+  .title {
+    font-size: clamp(3rem, 13vw, 4.6rem);
+  }
+  .shade {
+    background: linear-gradient(0deg, rgba(42, 20, 30, 0.8) 0%, rgba(42, 20, 30, 0.2) 60%, rgba(42, 20, 30, 0.1) 100%);
   }
 }
 @media (max-width: 480px) {
   .ctas {
     display: grid;
+    width: 100%;
   }
-  .ctas > *,
   .ctas :global(.btn) {
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
-@media (max-height: 640px) and (min-width: 900px) {
+@media (max-height: 700px) and (min-width: 900px) {
   .title {
-    font-size: clamp(3rem, 13vh, 7rem);
+    font-size: clamp(3rem, 12vh, 6rem);
   }
 }
